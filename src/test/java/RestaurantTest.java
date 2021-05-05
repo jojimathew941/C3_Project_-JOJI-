@@ -3,6 +3,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -68,4 +70,28 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+
+    @Test
+    public void get_total_order_value_should_return_the_total_amount_of_selected_items(){
+        //WRITE UNIT TEST CASE HERE
+        ArrayList<String> names = new ArrayList<String>();
+
+        LocalTime openingTime = LocalTime.parse("10:30:00");
+        LocalTime closingTime = LocalTime.parse("10:31:00");
+        restaurant =new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
+        restaurant.addToMenu("Sweet corn soup",119);
+        restaurant.addToMenu("Vegetable lasagne", 269);
+        restaurant.addToMenu("Vegetable", 50);
+        names.add("Sweet corn soup");
+        names.add("Vegetable lasagne");
+        names.add("Vegetable");
+
+
+
+        assertEquals(438, restaurant.getTotalOrderValue(names));
+
+    }
+
 }

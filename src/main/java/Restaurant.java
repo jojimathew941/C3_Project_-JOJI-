@@ -70,4 +70,15 @@ public class Restaurant {
         return name;
     }
 
+    public int getTotalOrderValue(ArrayList<String>itemNames) {
+
+
+        int total = 0;
+
+             return total;
+
+
+
+    }
+
 }
