@@ -72,10 +72,14 @@ public class Restaurant {
 
     public int getTotalOrderValue(ArrayList<String>itemNames) {
 
-
+        List<Item> selectedItems = new ArrayList<Item>();
         int total = 0;
+        for (int i=0; i<itemNames.size(); i++)
+        {
+            total += findItemByName(itemNames.get(i)).getPrice();
 
-             return total;
+        }
+        return total;
 
 
 
